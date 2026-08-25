@@ -60,20 +60,24 @@ Each row represents a single ticker, on a single date, with constraints added to
 
 It stores:
 
-   id INTEGER PRIMARY KEY, 
-   ticker text NOT NULL,
-   date DATE NOT NULL,
-   open FLOAT,
-   high FLOAT,
-   low FLOAT,
-   close FLOAT,
-   volume INTEGER,
-   UNIQUE (ticker, date)
+   id INTEGER PRIMARY KEY,  
+   ticker text NOT NULL,  
+   date DATE NOT NULL,  
+   open FLOAT,  
+   high FLOAT,  
+   low FLOAT,  
+   close FLOAT,  
+   volume INTEGER,  
+   UNIQUE (ticker, date)  
 
 
 ## Improvements with more time
-With more time on the task, or if it was a task with stake holder interaction, I would have tried to get hold of more detailed requirements e.g. What data to retrieve from the stock API, if there is a preferred schema, what the data is being used for, the desired granularity. 
-There was also scope for additional tables to be introduced within the database, containing other stock data that is retrievable by the API, as I have just limited it to the data from a single call. Company information, quarterly financial statements, analyst price targets etc. For a more complex task, metadata may be useful in the data table, storing ingestion timestamps to track when data is inserted, if records can be updated - a timestamp to retain when it was changed. Historical data may also be important to maintain for certain record updates.
-Program wise, additional error handling would be an important addition, I've tried to cover some easy to run into areas I am aware that it probably is quite an easy program to break. End to end and unit tests would be a useful way to find if there are process issues that are possible to run into, indicating where error handling may be of use. There is also no user input sanitisation, allowing a malicious user to cause any problem they desire with sql injection.
-The UI is very basic, just using the CLI and user prompts, with more time a dedicated GUI could be created, making the user experience more pleasing, while potentially reducing errors that can be run into with the use of buttons rather than free text fields.
+With more time on the task, or if it was a task with stake holder interaction, I would have tried to get hold of more detailed requirements e.g. What data to retrieve from the stock API, if there is a preferred schema, what the data is being used for, the desired granularity.  
+
+There was also scope for additional tables to be introduced within the database, containing other stock data that is retrievable by the API, as I have just limited it to the data from a single call. Company information, quarterly financial statements, analyst price targets etc. For a more complex task, metadata may be useful in the data table, storing ingestion timestamps to track when data is inserted, if records can be updated - a timestamp to retain when it was changed. Historical data may also be important to maintain for certain record updates.  
+
+Program wise, additional error handling would be an important addition, I've tried to cover some easy to run into areas I am aware that it probably is quite an easy program to break. End to end and unit tests would be a useful way to find if there are process issues that are possible to run into, indicating where error handling may be of use. There is also no user input sanitisation, allowing a malicious user to cause any problem they desire with sql injection.  
+
+The UI is very basic, just using the CLI and user prompts, with more time a dedicated GUI could be created, making the user experience more pleasing, while potentially reducing errors that can be run into with the use of buttons rather than free text fields.  
+
 I did attempt to use Docker to containerise the program but could not get it working on my personal machine, having never used Docker before I thought this was a good opportunity to learn how it works so that was unfortunate! With more time I hopefully would have been able to solve the issue that I was running into.
